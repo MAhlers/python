@@ -1,22 +1,40 @@
-import unittest
 import os
+import sys
+import unittest
 
 class UnitTests(unittest.TestCase):
 	
 	def setUp(self):
-		print('SetUp complete')
-		#data_file = open('../src/classpkg/data/db.txt','r')
-		#for line in data_file:
-		#	print(line)
-		#list(data_file)
-		#data_file.close()
+		
+		print('SetUp Complete.')
+	
+	def test_assert_string(self): #testString):
+		
+		db_path = '../data/db.txt'
+		
+		self.assertTrue(os.path.isfile(db_path))
+
+		data_file = open(db_path,'r')
+					
+		data_list = data_file.readlines()
+		
+		row_count = len(data_list)
+		
+		if row_count > 0:
+			
+			for line in data_list:
+				print(line, end='')
+		
+		data_file.close()
+		
+		self.assertEqual(data_list[0].replace('\n',''), 'Hello')
+		
+	@unittest.skip("Only to Test Functionality.")
+	def test_print(self):
+		print(os.path.dirname(os.path.abspath(__file__)), '\n')
 	
 	def tearDown(self):
-		print('TearDown complete')
-
-import 
-	def test_assert_string(self, testString): #testString):
-		self.assertEqual('Hello, World!', 'Hello, World!')
+		print('TearDown Complete.')
 		
 if __name__ == '__main__':
 	unittest.main()

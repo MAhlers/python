@@ -12,8 +12,6 @@ class HelloWorld:
 	db = (project_root + '\data\db.txt')
 	#empty_db = (project_root + 'data/emptydb.txt')
 	
-	print(db)
-	
 	data_size = os.stat(db).st_size
 
 	if data_size > 0:
