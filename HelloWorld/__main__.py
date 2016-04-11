@@ -7,9 +7,13 @@ import utilities
 class HelloWorld:
 	'The HelloWorld Application'
 
-	db = '/data/db.txt'
-	#empty_db = 'data/emptydb.txt'
-	print(os.getcwd())
+	project_root = os.path.dirname(os.path.abspath(__file__))
+	
+	db = (project_root + '\data\db.txt')
+	#empty_db = (project_root + 'data/emptydb.txt')
+	
+	print(db)
+	
 	data_size = os.stat(db).st_size
 
 	if data_size > 0:
@@ -39,3 +43,4 @@ class HelloWorld:
 	else:
 		
 		print("Data_File Data Length is ZERO.")
+		
