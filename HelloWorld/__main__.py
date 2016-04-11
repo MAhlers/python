@@ -2,6 +2,7 @@
 
 import os
 import model
+import sys
 import utilities
 
 class HelloWorld:
@@ -10,7 +11,7 @@ class HelloWorld:
 	project_root = os.path.dirname(os.path.abspath(__file__))
 	
 	db = (project_root + '\data\db.txt')
-	#empty_db = (project_root + 'data/emptydb.txt')
+	#empty_db = (project_root + '\data\emptydb.txt')
 	
 	data_size = os.stat(db).st_size
 
@@ -33,6 +34,8 @@ class HelloWorld:
 					print('Data_File Contains ', row_count, ' Records.')
 				
 				model.close_connection(conn)
+				
+				sys.stdin.readline()
 				
 			except OSError as e:
 
